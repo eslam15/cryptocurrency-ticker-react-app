@@ -3,3 +3,7 @@
     padding: 0;
     display: inline-flex;
 }
+
+.tickers-container a {
+    color: #696969;
+}

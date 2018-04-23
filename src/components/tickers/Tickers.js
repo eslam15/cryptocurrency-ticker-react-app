@@ -28,6 +28,15 @@ class Tickers extends Component {
                     percent_change_7d: "0",
                 },
                 {
+                    id: "ripple",
+                    name: "Ripple",
+                    symbol: "XRP",
+                    price_usd: "1",
+                    percent_change_1h: "0",
+                    percent_change_24h: "0",
+                    percent_change_7d: "0",
+                },
+                {
                     id: "litecoin",
                     name: "Litecoin",
                     symbol: "LTC",
@@ -48,7 +57,7 @@ class Tickers extends Component {
     fetchCryptocurrencyData() {
         axios.get("https://api.coinmarketcap.com/v1/ticker/")
             .then(response => {
-                var wanted = ["bitcoin", "ethereum", "litecoin"];
+                var wanted = ["bitcoin", "ethereum", "ripple", "litecoin"];
                 var result = response.data.filter(currency => wanted.includes(currency.id));
                 this.setState({ data: result });
             })
@@ -62,7 +71,7 @@ class Tickers extends Component {
         return (
             <div className="tickers-container">
                 <ul className="tickers">{tickers}</ul>
-                <p>Information updated every minute courtesy of coinmarketcap.com</p>
+                <p>Information updated every minute courtesy of <a href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">coinmarketcap.com</a></p>
             </div>
         );
     }
